@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180" role="img" aria-label="MW monogram">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;display=swap');
+    .mw-m { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 600; }
+    .mw-w { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 500; }
+  </style>
+  <text x="6" y="128" class="mw-m" font-size="128" fill="#B8874B">M</text>
+  <text x="92" y="128" class="mw-w" font-size="112" fill="#B8874B" opacity="0.92">W</text>
+  <line x1="34" y1="150" x2="186" y2="150" stroke="#B8874B" stroke-width="1.5"/>
+  <rect x="104" y="160" width="6" height="6" transform="rotate(45 107 163)" fill="#B8874B"/>
+</svg>

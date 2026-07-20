@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 220" role="img" aria-label="MW Executive Representation & Advisory">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Montserrat:wght@400;500&amp;display=swap');
+    .mw-m { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 600; }
+    .mw-w { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 500; }
+    .mw-title { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 600; letter-spacing: 2px; }
+    .mw-sub { font-family: 'Montserrat', Arial, sans-serif; font-weight: 500; letter-spacing: 3.5px; }
+  </style>
+  <g transform="translate(100,0)">
+    <text x="6" y="98" class="mw-m" font-size="98" fill="#B8874B">M</text>
+    <text x="72" y="98" class="mw-w" font-size="86" fill="#B8874B" opacity="0.92">W</text>
+    <line x1="24" y1="116" x2="146" y2="116" stroke="#B8874B" stroke-width="1.25"/>
+    <rect x="82" y="123" width="5" height="5" transform="rotate(45 84.5 125.5)" fill="#B8874B"/>
+  </g>
+  <text x="210" y="165" text-anchor="middle" class="mw-title" font-size="30" fill="#1A1A1A">MW EXECUTIVE</text>
+  <text x="210" y="190" text-anchor="middle" class="mw-sub" font-size="11" fill="#B8874B">REPRESENTATION &amp; ADVISORY</text>
+</svg>
