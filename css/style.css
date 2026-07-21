@@ -43,9 +43,10 @@ h1, h2, h3, h4 {
   color: var(--charcoal);
   margin: 0 0 0.5em;
   line-height: 1.2;
+  text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 500; }
+h1 { font-size: clamp(2.9rem, 6vw, 5.2rem); font-weight: 500; line-height: 1.08; }
 h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 h3 { font-size: 1.35rem; }
 
@@ -245,8 +246,42 @@ p { margin: 0 0 1em; color: #3a3a38; }
   opacity: 0.5;
 }
 
+.hero::after {
+  content: "MW";
+  position: absolute;
+  right: -0.06em;
+  bottom: -0.18em;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 32rem;
+  line-height: 1;
+  color: var(--bronze);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
 .hero__content { position: relative; z-index: 2; max-width: 720px; }
 .hero__content h1 { color: var(--warm-white); }
+.hero__content > * {
+  opacity: 0;
+  animation: hero-rise 0.7s ease-out forwards;
+}
+.hero__content .eyebrow { animation-delay: 0.05s; }
+.hero__content h1 { animation-delay: 0.15s; }
+.hero__content .hero__tagline { animation-delay: 0.3s; }
+.hero__content .hero__actions { animation-delay: 0.42s; }
+.hero__content .hero__meta { animation-delay: 0.54s; }
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__content > * { opacity: 1; animation: none; }
+}
 
 .hero__tagline {
   font-size: 1.05rem;
@@ -294,22 +329,40 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 /* --------------------------- Values strip --------------------------- */
 
 .values {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem 0;
 }
 .values__item {
-  padding: 1.5rem 1rem;
-  border: 1px solid rgba(184, 135, 75, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0 1.8rem;
+  position: relative;
 }
-.values__item svg { width: 30px; height: 30px; margin: 0 auto 0.8rem; stroke: var(--bronze); }
+.values__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 1.4rem;
+  background: rgba(184, 135, 75, 0.4);
+}
+.values__item svg { width: 22px; height: 22px; stroke: var(--bronze); flex-shrink: 0; }
 .values__item span {
-  display: block;
   font-size: 0.72rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .values__item::after { display: none; }
+  .values__item { padding: 0 1rem; }
 }
 
 /* --------------------------- Service list (editorial index) --------------------------- */
@@ -361,6 +414,30 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
   .service-row__index { font-size: 2rem; }
 }
 
+/* Compact teaser variant for the homepage: two-column index, no tags */
+.service-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.5rem;
+  border-top: 1px solid var(--slate-light);
+}
+.service-index__item {
+  padding: 1.9rem 0;
+  border-bottom: 1px solid var(--slate-light);
+}
+.service-index__item .service-row__index {
+  font-size: 1.3rem;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 0.3em;
+}
+.service-index__item h3 { font-size: 1.2rem; margin-bottom: 0.35em; }
+.service-index__item p { font-size: 0.9rem; margin: 0; color: var(--slate); }
+
+@media (max-width: 700px) {
+  .service-index { grid-template-columns: 1fr; }
+}
+
 /* --------------------------- About / split layout --------------------------- */
 
 .split {
@@ -375,25 +452,29 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 .portrait-frame {
   aspect-ratio: 4 / 5;
   background:
-    linear-gradient(160deg, #2b2620 0%, #1a1a1a 100%);
+    radial-gradient(ellipse at 75% 15%, #3a3226 0%, transparent 55%),
+    linear-gradient(160deg, #221e18 0%, #17140f 100%);
   position: relative;
   border: 1px solid var(--bronze);
   outline: 1px solid var(--warm-white);
   outline-offset: 10px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2.2rem;
+  overflow: hidden;
 }
-.portrait-frame__mark { width: 90px; height: auto; opacity: 0.85; }
+.portrait-frame__mark { width: 130px; height: auto; opacity: 0.92; align-self: center; margin: auto 0; }
 .portrait-frame figcaption {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
+  position: relative;
   color: var(--slate-light);
   font-size: 0.7rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(184, 135, 75, 0.35);
+  width: 100%;
 }
 
 /* --------------------------- Quote / testimonial --------------------------- */
@@ -422,13 +503,47 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 /* --------------------------- CTA banner --------------------------- */
 
 .cta-banner {
+  position: relative;
   background: var(--bronze);
   color: var(--warm-white);
-  text-align: center;
   padding: clamp(3rem, 7vw, 4.5rem) 0;
+  overflow: hidden;
+}
+.cta-banner::after {
+  content: "MW";
+  position: absolute;
+  left: -0.1em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 18rem;
+  line-height: 1;
+  color: var(--warm-white);
+  opacity: 0.06;
+  pointer-events: none;
+  white-space: nowrap;
 }
 .cta-banner h2 { color: var(--warm-white); }
 .cta-banner .btn--dark:hover { background: var(--charcoal-soft); }
+
+.cta-banner__inner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem 3rem;
+  text-align: left;
+}
+.cta-banner__inner h2 { margin-bottom: 0.4em; }
+.cta-banner__inner p { margin: 0; max-width: 460px; }
+.cta-banner__inner .btn { flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  .cta-banner__inner { text-align: center; justify-content: center; }
+  .cta-banner__inner p { margin: 0 auto; }
+}
 
 /* --------------------------- Process steps --------------------------- */
 
