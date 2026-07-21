@@ -31,6 +31,7 @@ The site is a fast, dependency-free static build: four pages, no framework, no b
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Design System](#design-system)
+- [Brand Collateral](#brand-collateral)
 - [Before Launch](#before-launch)
 - [Deployment](#deployment)
 - [Browser Support](#browser-support)
@@ -98,6 +99,20 @@ Then open **http://localhost:8080**. Any static server works equally well (`npx 
 | Slate | `#A4A4A4` | Secondary text, borders |
 
 Headings use **Cormorant Garamond** (a serif chosen for an editorial, established feel); body copy and UI labels use **Montserrat**. Both are loaded via `<link>` in each page `<head>` — see [Before Launch](#before-launch) if self-hosting fonts is preferred over the Google Fonts CDN.
+
+## Brand Collateral
+
+Print-ready stationery templates live in [`brand/`](brand/), styled with the same palette and type as the site. Each is a self-contained HTML file — open it in a browser, fill in the bracketed `[placeholder]` text, then use **Print → Save as PDF** (a "Print / Save as PDF" button is included on-screen and hides itself automatically when printing).
+
+| File | Purpose | Format |
+|---|---|---|
+| `brand/letterhead.html` | Official correspondence | A4 |
+| `brand/invoice.html` | Client billing | A4 |
+| `brand/receipt.html` | Payment confirmation, with a "Paid in Full" stamp | A4 |
+| `brand/compliment-slip.html` | Short notes accompanying documents/deliveries | 210×99mm (DL) |
+| `brand/email-signature.html` | Copy-paste signature block for Gmail/Outlook, with install steps included on the page | HTML email signature |
+
+The email signature uses inline styles and a text-based "MW" mark (no external image) so it survives being pasted into Gmail/Outlook, which strip most external CSS and can drop hosted images. Once the site has a stable public URL, the mark can be swapped for a hosted logo image for higher fidelity.
 
 ## Before Launch
 
