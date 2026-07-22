@@ -353,6 +353,45 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
   .pillars { grid-template-columns: 1fr; gap: 2rem; }
 }
 
+/* --------------------------- Why choose us (reasons grid) --------------------------- */
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 2rem 2.2rem;
+}
+.reasons__item { padding-left: 1rem; border-left: 2px solid var(--bronze); }
+.reasons__item h3 {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin-bottom: 0.5em;
+}
+.reasons__item p { font-size: 0.88rem; margin: 0; color: var(--slate); }
+
+/* --------------------------- Reports checklist grid --------------------------- */
+
+.reports-list {
+  list-style: none;
+  margin: 2.2rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem 3rem;
+  max-width: 700px;
+}
+.reports-list li {
+  padding: 0.75em 0;
+  border-top: 1px solid var(--slate-light);
+  font-size: 0.92rem;
+}
+@media (max-width: 640px) {
+  .reports-list { grid-template-columns: 1fr; }
+}
+
 /* --------------------------- Values strip --------------------------- */
 
 .values {
