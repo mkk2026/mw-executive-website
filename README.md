@@ -101,10 +101,9 @@ Headings use **Cormorant Garamond** (a serif chosen for an editorial, establishe
 
 ## Before Launch
 
-Two items need attention before this goes live:
-
-1. **Contact form endpoint.** `contact.html` posts to a placeholder Formspree URL (`https://formspree.io/f/YOUR_FORM_ID`). Create a free form at [formspree.io](https://formspree.io) and replace `YOUR_FORM_ID` with the real ID. Any static-form provider (Netlify Forms, Web3Forms, etc.) works — just update the form's `action` attribute.
-2. **Confirm the office address.** The address on the site (`29B Kingharman Road, Freetown, Sierra Leone`) was transcribed from a partially-cropped brand mockup image — confirm the exact spelling and number before publishing.
+- [x] **Office address confirmed.** `29B Kingharman Road, Freetown, Sierra Leone` is correct as published.
+- [ ] **Contact form endpoint.** `contact.html` posts to a placeholder Formspree URL (`https://formspree.io/f/YOUR_FORM_ID`). Create a free form at [formspree.io](https://formspree.io) and replace `YOUR_FORM_ID` with the real ID. Any static-form provider (Netlify Forms, Web3Forms, etc.) works — just update the form's `action` attribute. Planned alongside the domain purchase/setup.
+- [ ] **Domain + hosting.** Once the domain is purchased, point it at whichever static host is chosen (see [Deployment](#deployment)).
 
 Nice-to-haves for a future pass:
 
