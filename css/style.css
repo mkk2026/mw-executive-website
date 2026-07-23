@@ -330,33 +330,6 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 .section-head { max-width: 640px; margin: 0 auto 3.5rem; text-align: center; }
 .section-head--left { margin: 0 0 3rem; text-align: left; }
 
-/* --------------------------- Three pillars (homepage intro) --------------------------- */
-
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-}
-.pillars__item {
-  padding-top: 1.4rem;
-  border-top: 2px solid var(--bronze);
-}
-.pillars__num {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--bronze);
-  margin-bottom: 0.9em;
-}
-.pillars__item h3 { font-size: 1.25rem; margin-bottom: 0.5em; }
-.pillars__item p { font-size: 0.92rem; margin: 0; color: var(--slate); }
-
-@media (max-width: 800px) {
-  .pillars { grid-template-columns: 1fr; gap: 2rem; }
-}
-
 /* --------------------------- Why choose us (reasons grid) --------------------------- */
 
 .reasons {
@@ -394,6 +367,79 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 }
 @media (max-width: 640px) {
   .reports-list { grid-template-columns: 1fr; }
+}
+
+/* --------------------------- Service detail pages --------------------------- */
+
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--bronze-dark);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+}
+.link-more:hover { border-color: var(--bronze-dark); }
+.link-more svg { width: 14px; height: 14px; transition: transform var(--transition); }
+.link-more:hover svg { transform: translateX(3px); }
+
+.checklist {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem 3rem;
+}
+.checklist li {
+  padding: 0.75em 0;
+  border-top: 1px solid var(--slate-light);
+  font-size: 0.92rem;
+}
+@media (max-width: 640px) { .checklist { grid-template-columns: 1fr; } }
+
+.service-detail__group { margin-top: 2.8rem; }
+.service-detail__group:first-child { margin-top: 0; }
+.service-detail__group h3 {
+  font-size: 1.05rem;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid var(--bronze);
+  display: inline-block;
+}
+
+.support-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+}
+.support-tags li {
+  border: 1px solid var(--bronze);
+  color: var(--charcoal);
+  font-size: 0.8rem;
+  padding: 0.5em 1.1em;
+}
+
+.pull-quote {
+  background: var(--charcoal);
+  color: var(--warm-white);
+  padding: clamp(2.2rem, 5vw, 3.2rem);
+  text-align: center;
+}
+.pull-quote span.eyebrow { display: block; margin-bottom: 0.9em; }
+.pull-quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 500;
+  font-style: italic;
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--warm-white);
 }
 
 /* --------------------------- Values strip --------------------------- */
@@ -487,24 +533,23 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 /* Compact teaser variant for the homepage: two-column index, no tags */
 .service-index {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 3.5rem;
-  border-top: 1px solid var(--slate-light);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
 }
 .service-index__item {
-  padding: 1.9rem 0;
-  border-bottom: 1px solid var(--slate-light);
+  padding-top: 1.4rem;
+  border-top: 2px solid var(--bronze);
 }
 .service-index__item .service-row__index {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   opacity: 0.7;
   display: block;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.6em;
 }
-.service-index__item h3 { font-size: 1.2rem; margin-bottom: 0.35em; }
-.service-index__item p { font-size: 0.9rem; margin: 0; color: var(--slate); }
+.service-index__item h3 { font-size: 1.2rem; margin-bottom: 0.45em; }
+.service-index__item p { font-size: 0.9rem; margin: 0 0 0.9em; color: var(--slate); }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .service-index { grid-template-columns: 1fr; }
 }
 
