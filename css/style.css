@@ -36,6 +36,11 @@ body {
 img { max-width: 100%; display: block; }
 
 a { color: inherit; text-decoration: none; }
+a, button { touch-action: manipulation; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 2px;
+}
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
@@ -695,7 +700,7 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
   margin-bottom: 1.8rem;
 }
 .contact-info__item svg { width: 22px; height: 22px; stroke: var(--bronze); fill: none; stroke-width: 1.5; flex-shrink: 0; margin-top: 2px; }
-.contact-info__item h4 { margin-bottom: 0.2em; font-size: 0.95rem; }
+.contact-info__item h3 { margin-bottom: 0.2em; font-size: 0.95rem; }
 .contact-info__item p { margin: 0; font-size: 0.92rem; }
 
 .map-frame {
@@ -737,8 +742,13 @@ form.contact-form {
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  outline: none;
   border-color: var(--bronze);
+}
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 1px;
 }
 .field textarea { resize: vertical; min-height: 140px; }
 
@@ -773,7 +783,7 @@ form.contact-form {
 .footer-brand__mark { width: 32px; height: 26px; }
 .footer-brand__name { font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 1px; color: var(--warm-white); }
 
-.site-footer h4 {
+.site-footer h3 {
   color: var(--warm-white);
   font-size: 0.78rem;
   letter-spacing: 2px;
