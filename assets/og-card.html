@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.82) 60%, rgba(10,10,10,0.97) 100%),
+      radial-gradient(ellipse at 25% 20%, #3a3226 0%, transparent 55%),
+      linear-gradient(160deg, #14120f 0%, #1f1c17 45%, #0d0c0a 100%);
+    position: relative;
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+  .watermark {
+    position: absolute;
+    right: -40px;
+    bottom: -110px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 560px;
+    line-height: 1;
+    color: #B8874B;
+    opacity: 0.08;
+    white-space: nowrap;
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 90px;
+  }
+  .eyebrow {
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #D4AD78;
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 76px;
+    line-height: 1.08;
+    color: #FAF7F2;
+    max-width: 920px;
+    margin-bottom: 26px;
+  }
+  p {
+    font-size: 22px;
+    color: #A4A4A4;
+    max-width: 760px;
+    line-height: 1.5;
+  }
+  .rule { width: 90px; height: 2px; background: #B8874B; margin-top: 34px; }
+</style>
+</head>
+<body>
+  <div class="watermark">MW</div>
+  <div class="content">
+    <div class="eyebrow">Freetown, Sierra Leone</div>
+    <h1>MW Executive Representation &amp; Advisory</h1>
+    <p>Trusted executive representation, business support and advisory services for international businesses, investors and organisations in Sierra Leone.</p>
+    <div class="rule"></div>
+  </div>
+</body>
+</html>

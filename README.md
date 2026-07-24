@@ -32,6 +32,7 @@ The site is a fast, dependency-free static build: four pages, no framework, no b
 - [Getting Started](#getting-started)
 - [Design System](#design-system)
 - [Before Launch](#before-launch)
+- [SEO](#seo)
 - [Deployment](#deployment)
 - [Browser Support](#browser-support)
 - [License](#license)
@@ -102,14 +103,32 @@ Headings use **Cormorant Garamond** (a serif chosen for an editorial, establishe
 ## Before Launch
 
 - [x] **Office address confirmed.** `29B Kingharman Road, Freetown, Sierra Leone` is correct as published.
-- [ ] **Contact form endpoint.** `contact.html` posts to a placeholder Formspree URL (`https://formspree.io/f/YOUR_FORM_ID`). Create a free form at [formspree.io](https://formspree.io) and replace `YOUR_FORM_ID` with the real ID. Any static-form provider (Netlify Forms, Web3Forms, etc.) works — just update the form's `action` attribute. Planned alongside the domain purchase/setup.
-- [ ] **Domain + hosting.** Once the domain is purchased, point it at whichever static host is chosen (see [Deployment](#deployment)).
+- [x] **Domain purchased.** `mwexecutives.com` — canonical URLs, structured data, and all `info@` addresses are already wired to this domain sitewide.
+- [ ] **Contact form endpoint.** `contact.html` posts to a placeholder Formspree URL (`https://formspree.io/f/YOUR_FORM_ID`). Create a free form at [formspree.io](https://formspree.io) and replace `YOUR_FORM_ID` with the real ID. Any static-form provider (Netlify Forms, Web3Forms, etc.) works — just update the form's `action` attribute.
+- [ ] **Point the domain at hosting.** See [Deployment](#deployment).
 
 Nice-to-haves for a future pass:
 
 - Swap the placeholder portrait frames (`.portrait-frame` in `index.html` / `about.html`) for a real photo of Monique Williams
 - Replace the `assets/logo-*.svg` files with a designer-traced vector if the original brand artwork becomes available (needed for print — business cards, letterhead)
 - Add a real photo background to the homepage hero (`.hero` in `css/style.css`) in place of the current dark gradient
+
+## SEO
+
+Every page ships with:
+
+- **Canonical URL** (`<link rel="canonical">`) pointing at `https://mwexecutives.com/...`
+- **Open Graph + Twitter Card** tags, using a purpose-built 1200×630 share image (`assets/og-image.png` — source template at `assets/og-card.html` if it ever needs regenerating)
+- **`apple-touch-icon.png`** (180×180, source template at `assets/touch-icon-card.html`)
+- **JSON-LD structured data**: the homepage carries a full `ProfessionalService` schema (address, phone, email, founder, opening hours); every inner page carries a `BreadcrumbList` schema for SERP breadcrumbs
+- **`theme-color`** meta tag matching the brand's charcoal
+
+Sitewide files:
+
+- `robots.txt` — allows all crawlers, points to the sitemap
+- `sitemap.xml` — all 9 public pages with priority/changefreq hints
+
+If the final hosting choice changes the URL structure (e.g. clean URLs without `.html`, or a `www.` prefix), update `sitemap.xml`, `robots.txt`, and every `og:url`/`canonical`/JSON-LD `url` field to match — right now they all assume `https://mwexecutives.com/page.html` served literally as written.
 
 ## Deployment
 
